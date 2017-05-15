@@ -36,5 +36,5 @@ or via the arguments explained below
 
 
 ```
-### For a quick demo: 
+### For a quick demo after setup: 
 `npm start`
