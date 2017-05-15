@@ -13,8 +13,8 @@ NOTE: setup requires eighter args or a .env file populated with your oauth crede
 Quote from `node setup.js --help`: 
 ```
 Either provide clientid, clientsecret and scope via a .env file in the root directory like this:
-clientid="<id>"
-clientsecret="<secret>"
+clientid=<id>
+clientsecret=<secret>
 scope=<scope1> <scope2>
 or via the arguments explained below
 
