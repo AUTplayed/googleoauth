@@ -4,16 +4,12 @@ var app = express();
 var pj = require('path').join;
 var argv = require('argv');
 argv.option(getOptions());
-argv.info('Either provide clientid, clientsecret and scope via a .env file in the root directory like this: \nclientid="<id>"\nclientsecret="<secret>"\nscope=<scope1> <scope2>\nor via the arguments explained below');
+argv.info('Either provide clientid, clientsecret and scope via a .env file in the root directory like this: \nclientid=<id>\nclientsecret=<secret>\nscope=<scope1> <scope2>\nor via the arguments explained below');
 var args = argv.run();
 require('dotenv').config({ path: pj(__dirname, ".env") });
 
 //Internal Dependencies
 var google = require("./google.js");
-var infolog = "Please visit the root url of your app (most likely localhost:";
-if (args.options.port) console.log(infolog + args.options.port + ")");
-else if (process.env.PORT) console.log(infolog + process.env.PORT + ")");
-else console.log(infolog + "8080)");
 
 app.get('/', function (req, res) {
     var info = getInfo();
@@ -34,6 +30,11 @@ app.get('/callback', function (req, res) {
 });
 
 var server = app.listen(args.options.port || process.env.PORT || 8080);
+
+var infolog = "Please visit the root url of your app (most likely localhost:";
+if (args.options.port) console.log(infolog + args.options.port + ")");
+else if (process.env.PORT) console.log(infolog + process.env.PORT + ")");
+else console.log(infolog + "8080)");
 
 function getInfo() {
     if (args.options.scope) {

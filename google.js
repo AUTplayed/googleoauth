@@ -49,6 +49,10 @@ function getOA2C(scope, clientid, clientsecret, hostname) {
 
 function getSavedClient(callback) {
     fs.readFile(pj(__dirname, ".token"), "utf8", function (err, gc) {
+        if (err) {
+            console.log(err);
+            process.exit();
+        }
         gc = JSON.parse(gc);
         var oauth2Client = getOA2C(gc.scope, gc.oauth2Client.clientId_, gc.oauth2Client.clientSecret_, gc.oauth2Client.redirectUri_);
         oauth2Client.setCredentials(gc.oauth2Client.credentials);
