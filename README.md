@@ -8,7 +8,7 @@ Simple example for authorizing a single user via oauth2 and saving their access 
 
 `node setup.js`
 
-NOTE: setup requires eighter args or a .env file populated with your oauth credentials.
+NOTE: setup requires either args or a .env file populated with your oauth credentials.
 
 You can get google oauth credentials <a href="https://console.developers.google.com/apis/credentials">here</a>
 
